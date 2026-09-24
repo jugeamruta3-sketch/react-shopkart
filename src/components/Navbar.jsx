@@ -1,45 +1,49 @@
-import {useContext, useReducer} from 'react'
-import Cart from '../pages/Cart'
-import Home from '../pages/Home'
-import Login from '../pages/Login'
-import Register from '../pages/Register'
-import Products from '../pages/Products'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import "./Navbar.css";
+import { Themecontext } from "../context/ThemeContext";
+import { CartContext } from "../context/CartContext";
 
-import { Themecontext } from '../context/ThemeContext'
+export default function Navbar() {
+  const { state, dispatch } = useContext(Themecontext);
+  const { state: cartState } = useContext(CartContext);
 
-export default function Navbar(){
- const{state,dispatch}=useContext(Themecontext);
-
+  const toggleTheme = () => {
+    dispatch({ type: "TOGGLE_THEME" });
+  };
 
   return (
-    <nav
-        style={{
-            padding: "10px",
-            background: "black",
-            color: "white",
-        }}
-      >
-        
-          <Link to="">Home</Link> 
+    <nav className={`navbar ${state.theme}`}>
+      <div className="navbar-container">
+
+        <div className="logo">
+          <Link to="/">ShopKart</Link>
+        </div>
+
+        <div className="nav-links">
+          <Link to="/">Home</Link>
           <Link to="/products">Products</Link>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart" className="cart-link">
+            Cart
+            <span className="cart-count" aria-label={`${cartState.cart.length} items in cart`}>
+              {cartState.cart.length}
+            </span>
+          </Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
-<button
-  classname="theme-btn"
-  onclick={()=>
-  
-    dispatch({type:"TOGGLE_THEME"})}
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${state.theme === "light" ? "dark" : "light"} mode`}
+          >
+            {state.theme === "light" ? "Dark mode" : "Light mode"}
+          </button>
+        </div>
 
-  
-  
-  >
-  {state.theme==="light"?"lightmode":"Darkmode"}
-</button>
- </nav>
-
-   
+      </div>
+    </nav>
   );
 }
 

@@ -1,0 +1,134 @@
+.home-page {
+    background: #f5f1e8;
+    color: #17221c;
+    min-height: calc(100vh - 76px);
+    text-align: left;
+}
+
+.home-hero {
+    align-items: end;
+    background: linear-gradient(135deg, #f5f1e8 0%, #dbe7d9 100%);
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+    min-height: 510px;
+    padding: clamp(2rem, 7vw, 6.5rem) clamp(1.5rem, 7vw, 7rem);
+}
+
+.home-hero-content {
+    max-width: 700px;
+}
+
+.home-eyebrow {
+    color: #a34f2d;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.5rem;
+}
+
+.home-hero h1 {
+    color: #17221c;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.94;
+    margin: 0;
+    max-width: 760px;
+}
+
+.home-intro {
+    color: #4b5a4d;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 2rem 0;
+    max-width: 470px;
+}
+
+.home-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.home-actions a {
+    border-radius: 4px;
+    font-weight: 700;
+    padding: 0.85rem 1.2rem;
+    text-decoration: none;
+}
+
+.home-primary-action {
+    background: #17221c;
+    color: #ffffff;
+}
+
+.home-secondary-action {
+    border: 1px solid #17221c;
+    color: #17221c;
+}
+
+.home-feature {
+    border-left: 1px solid rgba(23, 34, 28, 0.35);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto 1fr;
+    padding: 0 0 0 1.5rem;
+}
+
+.home-feature-number,
+.home-highlights span {
+    color: #a34f2d;
+    font-weight: 800;
+}
+
+.home-feature strong {
+    display: block;
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+}
+
+.home-feature p,
+.home-highlights p {
+    color: #566457;
+    line-height: 1.5;
+}
+
+.home-highlights {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 clamp(1.5rem, 7vw, 7rem);
+}
+
+.home-highlights article {
+    border-left: 1px solid #c8d1c7;
+    padding: 2rem 1.5rem 3rem 0;
+}
+
+.home-highlights h2 {
+    color: #17221c;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem;
+}
+
+@media (max-width: 700px) {
+    .home-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .home-feature {
+        margin-top: 1rem;
+    }
+
+    .home-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .home-highlights article {
+        padding-bottom: 1.5rem;
+    }
+}
